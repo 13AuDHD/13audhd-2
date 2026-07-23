@@ -211,7 +211,7 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
   }
-
+  .signature-h{max-width:800px;}
   .menu-toggle,
   .nav-close{
     display:none;
