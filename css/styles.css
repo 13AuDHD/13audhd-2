@@ -390,13 +390,78 @@ blockquote,.callout{margin:2rem 0;padding:1.5rem;border-left:4px solid var(--acc
 .callout strong{color:var(--accent)}
 pre{overflow:auto;margin:2rem 0;padding:1.25rem;border:1px solid var(--line);border-radius:var(--radius);background:#050913;color:#eef2ff}
 code{font-family:'SFMono-Regular',Consolas,monospace}
-.site-footer{padding-block:4rem;border-top:1px solid var(--line);background:var(--surface)}
-.footer-grid{display:grid;gap:2.5rem}
-.footer-brand img:first-child{width:5rem;aspect-ratio:1;border:1px solid var(--text);border-radius:50%;object-fit:cover}
-.footer-brand img:last-child{width:13rem;max-height:4rem;object-fit:contain;object-position:left}
-.footer-links{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem}
-.footer-links a{text-decoration:none;color:var(--muted)}
-.copyright{margin-top:2rem;color:var(--muted);font-size:.85rem}
+.site-footer {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.footer-brand a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.footer-brand img:first-child {
+  width: 5rem;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-brand img:last-child {
+  width: min(13rem, 55vw);
+  max-height: 4rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(8rem, 1fr)
+  );
+  column-gap: 2rem;
+  row-gap: 0.65rem;
+}
+
+.footer-links a {
+  display: inline-block;
+  width: fit-content;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--accent);
+}
+
+.footer-social {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.site-footer .socials {
+  flex-wrap: wrap;
+}
+
+.copyright {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
 @media(min-width:760px){
   .shell{width:min(100% - 4rem,78rem)}
   .story-grid{grid-template-columns:1.1fr .8fr;gap:clamp(3rem,8vw,8rem)}
