@@ -265,6 +265,82 @@ function initializeBlogFilters() {
   filterPosts();
 }
 
+function initializeParallax() {
+  const sections = $$("[data-parallax-section]");
+
+  if (!sections.length) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (reduceMotion) {
+    return;
+  }
+
+  let ticking = false;
+
+  function updateParallax() {
+    sections.forEach((section) => {
+      const image = $("[data-parallax-image]", section);
+
+      if (!image) {
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      if (
+        rect.bottom < 0 ||
+        rect.top > viewportHeight
+      ) {
+        return;
+      }
+
+      const sectionCenter =
+        rect.top + rect.height / 2;
+
+      const viewportCenter =
+        viewportHeight / 2;
+
+      const distance =
+        sectionCenter - viewportCenter;
+
+      const movement = distance * -0.12;
+
+      image.style.transform =
+        `translate3d(0, ${movement}px, 0) scale(1.04)`;
+    });
+
+    ticking = false;
+  }
+
+  function requestUpdate() {
+    if (ticking) {
+      return;
+    }
+
+    ticking = true;
+    requestAnimationFrame(updateParallax);
+  }
+
+  window.addEventListener(
+    "scroll",
+    requestUpdate,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    "resize",
+    requestUpdate
+  );
+
+  updateParallax();
+}
+
 async function initializeSite() {
   await loadIncludes();
 
@@ -273,6 +349,7 @@ async function initializeSite() {
   initializeCopyright();
   initializeStatistics();
   initializeBlogFilters();
+  initializeParallax();
 }
 
 initializeSite();
