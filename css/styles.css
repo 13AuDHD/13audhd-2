@@ -361,6 +361,7 @@ button,input,select{font:inherit}.shell{width:min(100% - 2rem,78rem);margin-inli
   position: relative;
   z-index: 2;
 }
+
 .filters{display:grid;gap:1rem;margin:2rem 0 3rem;padding:1.25rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
 .field{display:grid;gap:.4rem}
 .field label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
