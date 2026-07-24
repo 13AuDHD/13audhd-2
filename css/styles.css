@@ -427,12 +427,9 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(8rem, 1fr)
-  );
-  column-gap: 2rem;
-  row-gap: 0.65rem;
+  grid-template-columns: 1fr;
+  gap: 0.65rem;
+  align-content: start;
 }
 
 .footer-links a {
@@ -475,12 +472,6 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
   }
   .footer-brand {
     grid-column: 1 / -1;
-  }
-  .footer-links {
-    grid-template-columns: repeat(
-      2,
-      minmax(8rem, 1fr)
-    );
   }
 }
 @media(min-width:1050px){
@@ -579,13 +570,6 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
 
 .footer-brand {
   grid-column: auto;
-}
-
-.footer-links {
-  grid-template-columns: repeat(
-    2,
-    minmax(8rem, 1fr)
-  );
 }
 }
 @media(prefers-reduced-motion:reduce){
