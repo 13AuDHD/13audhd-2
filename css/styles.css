@@ -216,28 +216,59 @@ button,input,select{font:inherit}.shell{width:min(100% - 2rem,78rem);margin-inli
 }
 .photography-parallax {
   position: relative;
-  background-image:
-    linear-gradient(
-      rgba(5, 8, 15, 0.38),
-      rgba(5, 8, 15, 0.62)
-    ),
-    url("../img/photos-hero.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--surface);
   color: #f4f1ea;
+}
+
+.photography-parallax__media {
+  position: absolute;
+  inset: -12% 0;
+  z-index: -3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.photography-parallax__media img {
+  width: 100%;
+  height: 124%;
+  object-fit: cover;
+  object-position: center 45%;
+  transform: translate3d(0, 0, 0) scale(1.04);
+  will-change: transform;
+}
+
+.photography-parallax__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5, 8, 15, 0.42),
+      rgba(5, 8, 15, 0.7)
+    );
+  pointer-events: none;
+}
+
+.photography-parallax__content {
+  position: relative;
+  z-index: 1;
 }
 
 .photography-parallax .eyebrow,
-.photography-parallax .section-title,
-.photography-parallax .lede {
+.photography-parallax .section-title {
   color: #f4f1ea;
 }
 
+.photography-parallax .lede {
+  color: #d9dee7;
+}
+
 .photography-parallax .media-card {
-  background: rgba(10, 15, 27, 0.7);
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+  background: rgba(10, 15, 27, 0.78);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
 }
 .filters{display:grid;gap:1rem;margin:2rem 0 3rem;padding:1.25rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
 .field{display:grid;gap:.4rem}
@@ -277,7 +308,6 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
 .copyright{margin-top:2rem;color:var(--muted);font-size:.85rem}
 @media(min-width:760px){
   .shell{width:min(100% - 4rem,78rem)}
-  .photography-parallax{background-attachment:fixed;background-position:center 40%;}
   .story-grid{grid-template-columns:1.1fr .8fr;gap:clamp(3rem,8vw,8rem)}
   .gallery-grid{grid-template-columns:repeat(3,1fr)}
   .numbers-grid{grid-template-columns:repeat(4,1fr)}
@@ -371,7 +401,6 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
   .page-hero {
     min-height: calc(100svh - var(--nav-h));
   }
-  .photography-parallax{background-attachment:fixed;background-position:center 40%;}
   .footer-grid{
     grid-template-columns:1fr 1fr;
   }
