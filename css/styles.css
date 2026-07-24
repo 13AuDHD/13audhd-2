@@ -382,6 +382,7 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
   .page-hero {
     min-height: calc(100svh - var(--nav-h));
   }
+  .photography-parallax{background-size:cover;background-position: center;}
   .footer-grid{
     grid-template-columns:1fr 1fr;
   }
