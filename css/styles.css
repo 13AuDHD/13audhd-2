@@ -433,7 +433,7 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
 }
 
 .footer-links a {
-  display: inline-block;
+  display: block;
   width: fit-content;
   color: var(--muted);
   text-decoration: none;
@@ -451,7 +451,7 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
 }
 
 .site-footer .socials {
-  flex-wrap: wrap;
+  flex-wrap: no-wrap;
 }
 
 .copyright {
