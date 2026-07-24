@@ -341,6 +341,54 @@ function initializeParallax() {
   updateParallax();
 }
 
+function initializeDesignCardReveals() {
+  const cards = $$("#design .media-card");
+
+  if (!cards.length) {
+    return;
+  }
+
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (reduceMotion) {
+    cards.forEach((card) => {
+      card.classList.add("is-revealed");
+    });
+
+    return;
+  }
+
+  document.documentElement.classList.add(
+    "has-card-reveals"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add(
+          "is-revealed"
+        );
+
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.18,
+      rootMargin: "0px 0px -8% 0px"
+    }
+  );
+
+  cards.forEach((card) => {
+    observer.observe(card);
+  });
+}
+
 async function initializeSite() {
   await loadIncludes();
 
@@ -350,6 +398,7 @@ async function initializeSite() {
   initializeStatistics();
   initializeBlogFilters();
   initializeParallax();
+  initializeDesignCardReveals();
 }
 
 initializeSite();
