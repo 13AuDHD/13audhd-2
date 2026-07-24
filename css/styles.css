@@ -277,7 +277,7 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
 .copyright{margin-top:2rem;color:var(--muted);font-size:.85rem}
 @media(min-width:760px){
   .shell{width:min(100% - 4rem,78rem)}
-  .photography-parallax{background-attachment:fixed;background-position:bottom;}
+  .photography-parallax{background-attachment:fixed;background-position:center 40%;}
   .story-grid{grid-template-columns:1.1fr .8fr;gap:clamp(3rem,8vw,8rem)}
   .gallery-grid{grid-template-columns:repeat(3,1fr)}
   .numbers-grid{grid-template-columns:repeat(4,1fr)}
@@ -371,7 +371,7 @@ code{font-family:'SFMono-Regular',Consolas,monospace}
   .page-hero {
     min-height: calc(100svh - var(--nav-h));
   }
-  .photography-parallax{background-attachment:fixed;background-position:bottom;}
+  .photography-parallax{background-attachment:fixed;background-position:center 40%;}
   .footer-grid{
     grid-template-columns:1fr 1fr;
   }
